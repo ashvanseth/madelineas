@@ -6,7 +6,7 @@ use danog\MadelineProto\EventHandler;
 use danog\MadelineProto\Logger;
 use danog\MadelineProto\Settings;
 use danog\Loop\GenericLoop;
-use danog\MadelineProto\Logger::LOGGER_FILE;
+use danog\MadelineProto\Logger;
 
 
 if (file_exists('vendor/autoload.php')) {
