@@ -185,14 +185,11 @@ $this->account->updateProfile(first_name: "ᄊ $rum ᄊ");
 }
 }
 
- $this->account->updateStatus(offline: false);       
+$this->account->updateStatus(offline: false);       
         return 60;
-}catch (\danog\MadelineProto\RPCErrorException $e) {
-if(preg_match('~^FLOOD_WAIT_(\d+)$~', $e->rpc, $match)){
-           $wait = $match[1];
-           $this->sleep($wait);
-}
-}
+} catch(Exception $e){
+file_put_contents('checkenotherror.txt', $e->getMessage()); 
+}   
     }
     
     public function onStart(): void
