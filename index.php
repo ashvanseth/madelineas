@@ -6,7 +6,7 @@ use danog\MadelineProto\EventHandler;
 use danog\MadelineProto\Logger;
 use danog\MadelineProto\Settings;
 use danog\Loop\GenericLoop;
-use danog\MadelineProto\Logger;
+use danog\MadelineProto\Settings\Logger as LoggerSettings;
 
 
 if (file_exists('vendor/autoload.php')) {
@@ -564,6 +564,11 @@ $settings->getLogger()->setLevel(Logger::LEVEL_ULTRA_VERBOSE);
 $settings->setAppInfo((new \danog\MadelineProto\Settings\AppInfo)
     ->setApiId(29779042)
     ->setApiHash('e276321f9c0fe5298b9a6b32157d1b8d')
+);
+$settings->logger((new LoggerSettings)
+    ->setType(Logger::FILE_LOGGER)
+    ->setExtra('custom.log')
+    ->setMaxSize(50*1024*1024)
 );
 // You can also use Redis, MySQL or PostgreSQL
 // $settings->setDb((new Redis)->setDatabase(0)->setPassword('pony'));
