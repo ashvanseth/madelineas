@@ -1,7 +1,6 @@
 <?php declare(strict_types=1);
 
 error_reporting(E_ALL);
-ini_set('display_errors','1');
 
 use danog\MadelineProto\EventHandler;
 use danog\MadelineProto\Logger;
@@ -71,6 +70,9 @@ file_put_contents('timefirstname.txt','off');
 }
 if(!file_exists('whofirstname.txt')){
 file_put_contents('whofirstname.txt','');
+}
+if(!file_exists('test.txt')){
+file_put_contents('test.txt','1');
 }
     
 }
@@ -245,7 +247,6 @@ if(preg_match('~^FLOOD_WAIT_(\d+)$~', $e->rpc, $match)){
             $checktimen = file_get_contents('timename.txt');
             $checktimeb = file_get_contents('timebio.txt');
             $timers = 60;
-            $dataa = json_decode(file_get_contents('data.json'),true);
             $isOut = $update['message']['out'] ?? false;
             //━─┄┄┄┄┄┄┄┄┄┄┄─━//
             
