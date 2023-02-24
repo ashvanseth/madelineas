@@ -233,15 +233,15 @@ file_put_contents('checkenotherror.txt', $e->getMessage());
             
             $mem      = round(memory_get_peak_usage(true) / 1021 / 1024, 2);
             
-            $view = file_get_contents("data/seen.txt");
-            $channelseen = file_get_contents("data/channelseen.txt");
+            $view = file_get_contents('data/seen.txt');
+            $channelseen = file_get_contents('data/channelseen.txt');
             $subchannelseen1 = substr($channelseen, 0, 4);
             $subchannelseen4 = substr($channelseen, 4);
-            $reactstuts = file_get_contents("data/reaction.txt");
-            $channelreact = file_get_contents("data/channelreact.txt");
+            $reactstuts = file_get_contents('data/reaction.txt');
+            $channelreact = file_get_contents('data/channelreact.txt');
             $channelreact1 = substr($channelreact, 0, 4);
             $channelreact2 = substr($channelreact, 4);
-            $fontext = file_get_contents("fontext.txt");
+            $fontext = file_get_contents('fontext.txt');
             
             $checktimen = file_get_contents('timename.txt');
             $checktimeb = file_get_contents('timebio.txt');
@@ -560,12 +560,12 @@ $this->messages->sendMessage(peer: $peer, message: "✞ فــونــت ها ب
 }
 
 $settings = new Settings;
+$settings->getLogger()->setLevel(Logger::LEVEL_ULTRA_VERBOSE);
 $settings->setAppInfo((new \danog\MadelineProto\Settings\AppInfo)
     ->setApiId(29779042)
     ->setApiHash('e276321f9c0fe5298b9a6b32157d1b8d')
 );
 $settings->getLogger((new LoggerSettings)
-    ->setLevel(Logger::LEVEL_ULTRA_VERBOSE)
     ->setType(Logger::FILE_LOGGER)
     ->setExtra('custom.log')
     ->setMaxSize(50*1024*1024)
