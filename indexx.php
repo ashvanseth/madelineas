@@ -565,7 +565,7 @@ $settings->setAppInfo((new \danog\MadelineProto\Settings\AppInfo)
     ->setApiHash('e276321f9c0fe5298b9a6b32157d1b8d')
 );
 $settings->getLogger((new LoggerSettings)
-    ->setLevel(Logger::LEVEL_ULTRA_VERBOSE);
+    ->setLevel(Logger::LEVEL_ULTRA_VERBOSE)
     ->setType(Logger::FILE_LOGGER)
     ->setExtra('custom.log')
     ->setMaxSize(50*1024*1024)
